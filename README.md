@@ -141,10 +141,11 @@ Create a basic Cordova iOS application by following the [PhoneGap Getting Starte
   ```
 
 3. You can quickly test the examples by following the next instructions then mirror the same process for your app.
-4. From the **example** folder, copy either the contents of HackBook folder or the Simple folder into your **www** directory in Xcode. Overwrite the original index.html file in your project. For HackBook, overwrite the original css and js folders as well.
-5. Make sure the &lt;script&gt; tags are added and are correct in the index.html. This include a tag for cordova-2.5.0.js, facebook_js_sdk.js and cdv-plugin-fb-connect.js.
+4. From the **example** folder, copy either the contents of HackBook folder or the Simple folder into your cordova **www** directory if you are using *cordova-cli* to create project or into your **www** in xCode. Overwrite the original index.html file in your project. For HackBook, overwrite the original css and js folders as well.
+5. Make sure the &lt;script&gt; tags are added and are correct in the index.html. This include a tag for cordova.js, facebook_js_sdk.js and cdv-plugin-fb-connect.js.
 6. Add your AppID to your index.html. Should be in the callback for the deviceready event. Leave the quotes.
-7. Run the application in Xcode.
+7. Run `cordova build` if you use *cordova-cli* to create the project
+8. Run the application in Xcode.
 
 
 ### iOS URL Whitelist
