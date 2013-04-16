@@ -49,13 +49,7 @@ If you plan on rolling this out on Android, please note that you will need to [g
 
 `www/cdv-plugin-fb-connect.js` is the JavaScript code for the plugin, this defines the JS API.
 
-`src/android` and `src/ios` contain the native code for the plugin for both Android and iOS platforms. They also include versions of the Android and iOS Facebook SDKs. These are used during automatic installation. During manual installation, you are encouraged to download the most recent versions of the Facebook SDKs for you projects. 
-
-
-## Adobe PhoneGap Build
-
-If using this plugin on Adobe PhoneGap Build you can ignore the instructions below and go straight to the 
-PhoneGap Build documentation available [here] (https://build.phonegap.com/docs/plugins#facebookconnect).
+`src/android` and `src/ios` contain the native code for the plugin for both Android and iOS platforms. They also include versions of the Android and iOS Facebook SDKs. These are used during automatic installation. During manual installation, you are encouraged to download the most recent versions of the Facebook SDKs for you projects.
 
 ## Manual Android Installation
 
@@ -97,20 +91,19 @@ Create a basic Cordova iOS application by following the [PhoneGap Getting Starte
 
 ### Add the Facebook iOS and JavaScript SDK
 
-1. Download the latest Facebook SDK for iOS from the [iOS Dev Center](https://developers.facebook.com/ios/).
-2. Add the Facebook SDK for iOS Framework by dragging the **FacebookSDK.framework** folder from the SDK installation folder into the Frameworks section of your Project Navigator.
-3. Choose 'Create groups for any added folders' and deselect 'Copy items into destination group's folder (if needed)' to keep the reference to the SDK installation folder, rather than creating a copy.
-4. Add the Facebook SDK for iOS resource bundle by dragging the **FacebookSDKResources.bundle** file from the **FacebookSDK.framework/Resources** folder into the Frameworks section of your Project Navigator.
-5. As you did when copying the Framework, choose 'Create groups for any added folders' and deselect 'Copy items into destination group's folder (if needed)'
-6. Add the headers by dragging the **DeprecatedHeaders** folder from the **FacebookSDK.framework/Versions/A/DeprecatedHeaders** folder into the Frameworks section of your Project Navigator.
-7. Choose 'Create groups for any added folders' and deselect 'Copy items into destination group's folder (if needed)'. This adds the headers as a reference.
-8. Click on your project's icon (the root element) in Project Navigator, select your **Project**, then the **Build Settings** tab, search for **Other Linker Flags**.
-9. Add the value **-lsqlite3.0**
-10. Add the value **-ObjC**
-11. Click on your project's icon (the root element) in Project Navigator, select your **Target**, then the **Build Phases** tab, then the **Link Binary With Libraries** option.
-12. Add the **Social.framework** framework. Make it an optional framework to support pre iOS6 apps.
-13. Add the **Accounts.framework** framework. Make it an optional framework to support pre iOS6 apps.
-14. Add the **AdSupport.framework** framework. Make it an optional framework to support pre iOS6 apps.
+1. Add the Facebook SDK for iOS Framework by dragging the **FacebookSDK.framework** folder from `src/ios/` folder into the Frameworks section of your Project Navigator.
+2. Choose 'Create groups for any added folders' and deselect 'Copy items into destination group's folder (if needed)' to keep the reference to the SDK installation folder, rather than creating a copy.
+3. Add the Facebook SDK for iOS resource bundle by dragging the **FacebookSDKResources.bundle** file from the **FacebookSDK.framework/Resources** folder into the Frameworks section of your Project Navigator.
+4. As you did when copying the Framework, choose 'Create groups for any added folders' and deselect 'Copy items into destination group's folder (if needed)'
+5. Add the headers by dragging the **DeprecatedHeaders** folder from the **FacebookSDK.framework/Versions/A/DeprecatedHeaders** folder into the Frameworks section of your Project Navigator.
+6. Choose 'Create groups for any added folders' and deselect 'Copy items into destination group's folder (if needed)'. This adds the headers as a reference.
+7. Click on your project's icon (the root element) in Project Navigator, select your **Project**, then the **Build Settings** tab, search for **Other Linker Flags**.
+8. Add the value **-lsqlite3.0**
+9. Add the value **-ObjC**
+10. Click on your project's icon (the root element) in Project Navigator, select your **Target**, then the **Build Phases** tab, then the **Link Binary With Libraries** option.
+11. Add the **Social.framework** framework. Make it an optional framework to support pre iOS6 apps.
+12. Add the **Accounts.framework** framework. Make it an optional framework to support pre iOS6 apps.
+13. Add the **AdSupport.framework** framework. Make it an optional framework to support pre iOS6 apps.
 
 ### Add the Cordova Facebook Plugin
 
@@ -147,6 +140,14 @@ You can either add each subdomain separately:
 * \*.fbcdn.net
 * \*.akamaihd.net
 
+```xml
+<access origin="m.facebook.com" />
+<access origin="graph.facebook.com" />
+<access origin="api.facebook.com" />
+<access origin="*.fbcdn.net" />
+<access origin="*.akamaihd.net" />
+```
+
 Or you can allow all domains with (set to this by default):
 
 * \*
@@ -168,16 +169,3 @@ Make sure you add the scheme to your [PROJECTNAME]-Info.plist (located as one of
 	&lt;/dict&gt;
 &lt;/array&gt;
 </pre>
-
-## Automatic Installation
-This plugin is based on [plugman](https://git-wip-us.apache.org/repos/asf?p=cordova-plugman.git;a=summary). To install it to your app, simply execute plugman as follows; Still a little buggy and does not include the latest Facebook SDKs.
-
-	plugman --platform [PLATFORM] --project [TARGET-PATH] --plugin [PLUGIN-PATH] APP_ID="[APP_ID]"
-	
-	where
-		[PLATFORM] = ios or android
-		[TARGET-PATH] = path to folder containing your phonegap project
-		[PLUGIN-PATH] = path to folder containing this plugin
-		[APP_ID] = Your APP_ID as registered on Facebook
-
-
