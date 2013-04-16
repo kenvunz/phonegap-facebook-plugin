@@ -120,7 +120,26 @@ Create a basic Cordova iOS application by following the [PhoneGap Getting Starte
 ### Run the included samples
 
 1. Under the group **Resources**, find your **[PROJECTNAME]-Info.plist**, add a new entry. For the key, add **FacebookAppID**, and its value is your Facebook **APP_ID**
-2. Under the group **Resources**, find your **[PROJECTNAME]-Info.plist**, right-click on the file and select **Open As -> Source Code**, add the **URL Scheme** from the section below (you will need your Facebook **APP_ID**)
+
+  ```xml
+  <key>FacebookAppID</key>
+  <string>APP_ID</string>
+  ```
+
+2. Under the group **Resources**, find your **[PROJECTNAME]-Info.plist**, right-click on the file and select **Open As -> Source Code**, add the **URL Scheme** from the section below (you will need your Facebook **APP_ID**). This is to handle the re-direct from Mobile Safari or the Facebook app, after permission authorization.
+
+  ```xml
+  <key>CFBundleURLTypes</key>
+  <array>
+    <dict>
+      <key>CFBundleURLSchemes</key>
+      <array>
+        <string>fb[APP_ID]</string>
+      </array>
+    </dict>
+  </array>
+  ```
+
 3. You can quickly test the examples by following the next instructions then mirror the same process for your app.
 4. From the **example** folder, copy either the contents of HackBook folder or the Simple folder into your **www** directory in Xcode. Overwrite the original index.html file in your project. For HackBook, overwrite the original css and js folders as well.
 5. Make sure the &lt;script&gt; tags are added and are correct in the index.html. This include a tag for cordova-2.5.0.js, facebook_js_sdk.js and cdv-plugin-fb-connect.js.
@@ -151,21 +170,3 @@ You can either add each subdomain separately:
 Or you can allow all domains with (set to this by default):
 
 * \*
-
-### iOS URL Scheme
-
-Make sure you add the scheme to your [PROJECTNAME]-Info.plist (located as one of the files in your Xcode project), substitute [APP_ID] below to the appropriate values. This is to handle the re-direct from Mobile Safari or the Facebook app, after permission authorization.
-
-* [**APP_ID**] is the Facebook app id given by Facebook
-
-<pre>
-&lt;key&gt;CFBundleURLTypes&lt;/key&gt;
-&lt;array&gt;
-	&lt;dict&gt;
-		&lt;key&gt;CFBundleURLSchemes&lt;/key&gt;
-		&lt;array&gt;
-			&lt;string&gt;fb[**APP_ID**]&lt;/string&gt;
-		&lt;/array&gt;
-	&lt;/dict&gt;
-&lt;/array&gt;
-</pre>
