@@ -28,26 +28,8 @@
             <plugin name="org.apache.cordova.facebook.Connect" value="org.apache.cordova.facebook.ConnectPlugin"/>
         </config-file>
         
-        <!-- res files -->
-        <source-file src="facebook/res/drawable/close.png" target-dir="res/drawable" />
-        <source-file src="facebook/res/drawable/facebook_icon.png" target-dir="res/drawable" />
-        <source-file src="facebook/res/drawable-hdpi/close.png" target-dir="res/drawable-hdpi" />
-        <source-file src="facebook/res/drawable-hdpi/facebook_icon.png" target-dir="res/drawable-hdpi" />
-        <source-file src="facebook/res/drawable-ldpi/close.png" target-dir="res/drawable-ldpi" />
-        <source-file src="facebook/res/drawable-ldpi/facebook_icon.png" target-dir="res/drawable-ldpi" />
-        <source-file src="facebook/res/drawable-xhdpi/close.png" target-dir="res/drawable-xhdpi" />
-        
         <!-- cordova plugin src files -->
         <source-file src="ConnectPlugin.java" target-dir="src/org/apache/cordova/facebook" />
-        
-        <!-- facebook src files -->
-        <source-file src="facebook/AsyncFacebookRunner.java" target-dir="src/com/facebook/android" />
-        <source-file src="facebook/DialogError.java" target-dir="src/com/facebook/android" />
-        <source-file src="facebook/Facebook.java" target-dir="src/com/facebook/android" />
-        <source-file src="facebook/FacebookError.java" target-dir="src/com/facebook/android" />
-        <source-file src="facebook/FbDialog.java" target-dir="src/com/facebook/android" />
-        <source-file src="facebook/Util.java" target-dir="src/com/facebook/android" />
-         
     </platform>
     
     <!-- ios -->
